@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class C_Showering {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        while (t-- > 0) {
+            int n = sc.nextInt();
+            int s = sc.nextInt();
+            int m = sc.nextInt();
+            long max = 0;
+
+            long array[][] = new long[n + 2][2];
+            array[0][0] = 0;
+            array[0][1] = 0;
+            array[n + 1][0] = m;
+            array[n + 1][1] = m;
+
+            for (int i = 1; i <= n; i++) {
+                for (int j = 0; j < 2; j++) {
+                    array[i][j] = sc.nextInt();
+
+                }
+
+            }
+
+            
+            for (int j = 0; j < n + 1; j++) {
+
+                long a = array[j + 1][0] - array[j][1];
+                if (a > max) {
+                    max = a;
+                }
+
+            }
+            if (max >= s) {
+                System.out.println("YES");
+
+            } else {
+                System.out.println("NO");
+            }
+
+        }
+    }
+}
